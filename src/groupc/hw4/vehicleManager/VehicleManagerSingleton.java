@@ -6,6 +6,39 @@ import group.hw4.vehicles.AbstractVehicle;
 
 public class VehicleManagerSingleton {
 
+	//Keeps track of the ONLY instance of the Vehicle Manager
+	private static VehicleManagerSingleton instance =null;
+	
+	
+	//Variable to keep track of the CSV file relative path. 
+	//Note that unlike HW3, since the path is set up during initialization, VehicleFilePath is NOT final
+	private String VehicleFilePath = null;
+	
+	//An arraylist to hold each of the vehicles read from the CSV file
+	ArrayList<AbstractVehicle> vehicleList;
+	
+	/**
+	 * base constructor that is private to avoid creating multiple copies of the same singleton
+	 */
+	private VehicleManagerSingleton() {
+		this.vehicleList = new ArrayList<AbstractVehicle>();
+		
+	}
+	
+	/**
+	 * TODO
+	 * 
+	 * This is a method to get the ONLY instance of the VehicleManager
+	 * @return
+	 */
+	public static VehicleManagerSingleton getInstance() {
+		if(instance == null) {
+			instance = new VehicleManagerSingleton();//creates an instance, if the current instance is null
+		}
+		return instance;
+	}
+	
+	
 	/**
 	 * Reads the data from a CSV file located at vehicleFilePath. Initialize each of the Vehicle
 	 * objects (Hint: Consider using the split() method for tokenization. Check the type of each
@@ -17,6 +50,7 @@ public class VehicleManagerSingleton {
 	 * @param fileName
 	 * */
 	public boolean readFromFile(String fileName) {
+		
 		return false;
 	}
 
@@ -26,6 +60,9 @@ public class VehicleManagerSingleton {
 	 * @param fileName
 	 */
 	public void VehicleManager(String fileName) {
+		//initialize filepath to fileName
+		this.VehicleFilePath=fileName;
+		
 	}
 	
 	/**

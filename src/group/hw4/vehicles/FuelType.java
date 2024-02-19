@@ -6,7 +6,7 @@ package group.hw4.vehicles;
 
 public enum FuelType {
 	GASOLINE,
-	DISEL,
+	DIESEL,
 	ELECTRIC,
 	HYBRID
 }

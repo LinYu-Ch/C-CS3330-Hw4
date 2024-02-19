@@ -5,8 +5,12 @@ import java.util.Scanner;
 import java.io.FileInputStream;
 
 import group.hw4.vehicles.AbstractVehicle;
+import group.hw4.vehicles.Car;
 import group.hw4.vehicles.FuelType;
+import group.hw4.vehicles.MotorBike;
+import group.hw4.vehicles.SUV;
 import group.hw4.vehicles.StartMechanism;
+import group.hw4.vehicles.Truck;
 import group.hw4.vehicles.VehicleColor;
 
 public class VehicleManagerSingleton {
@@ -46,12 +50,12 @@ public class VehicleManagerSingleton {
 	
 	/**
 	 * Reads the data from a CSV file located at vehicleFilePath. Initialize each of the Vehicle
-	 * objects (Hint: Consider using the split() method for tokenization. Check the type of each
-	 * object and instantiate the exact class. Store the objects into vehicleList).
+	 * objects. Stores the objects into vehicleList).
 	 * 
-	 * Return true if the read file and initialization are successful.
+	 * Author: Zoe 
+	 * Note: The code used below uses concepts from Ryan's implementation of initializeStock() from assignment3
 	 * 
-	 * Return false if cannot read/find the file.
+	 * @return true if the read file and initialization are successful. false if cannot read/find the file
 	 * @param fileName
 	 * */
 	public boolean readFromFile(String fileName) {
@@ -79,23 +83,38 @@ public class VehicleManagerSingleton {
 				
 				
 				//Splits the splitted string array to its different components
-				String type = splitted[0]; //Vehicle type TODO??
-				//,GasTankCapacity,StartType
-				String Model = splitted[1]; //the model of the vehicle
-				String Make = splitted[2]; //the make of the vehicle
-				long ModelYear = Long.parseLong(splitted[3]); // the year the vehicle was released
+				String type = splitted[0]; //Vehicle type 
+				String model = splitted[1]; //the model of the vehicle (Also called Brand
+				String make = splitted[2]; //the make of the vehicle
+				long modelYear = Long.parseLong(splitted[3]); // the year the vehicle was released
 				double price = Integer.parseInt(splitted[4]); //The price of the vehicle
 				VehicleColor color = VehicleColor.valueOf(splitted[5]); //Color of the vehicle
-				FuelType fueltype= FuelType.valueOf(splitted[6]); //type of fuel the vehicle uses
-				double Mileage = Double.parseDouble(splitted[7]); //The mileage of the vehicle
+				FuelType fuelType= FuelType.valueOf(splitted[6]); //type of fuel the vehicle uses
+				double mileage = Double.parseDouble(splitted[7]); //The mileage of the vehicle
 				double mass = Double.parseDouble(splitted[8]); //The mass of the vehicle
 				int cylinders = Integer.parseInt(splitted[9]);
 				double gasTankCapacity= Double.parseDouble(splitted[10]);
 				StartMechanism startMechanism = StartMechanism.valueOf(splitted[11]);
 				
 				
+			
+				//Assigns the splitted values to a new object of the proper type and then adds it to the VehicleList
+				if(type.equals("Truck")) {
+					vehicleList.add(new Truck(model, make, modelYear, price, color, fuelType, mileage, mass, cylinders, gasTankCapacity, startMechanism));
+				} else if(type.equals("Car")) {
+					vehicleList.add(new Car(model, make, modelYear, price, color, fuelType, mileage, mass, cylinders, gasTankCapacity, startMechanism));
+				}else if(type.equals("SUV")) {
+					vehicleList.add(new SUV(model, make, modelYear, price, color, fuelType, mileage, mass, cylinders, gasTankCapacity, startMechanism));
+				}else if(type.equals("MotorBike")) {
+					vehicleList.add(new MotorBike(model, make, modelYear, price, color, fuelType, mileage, mass, cylinders, gasTankCapacity, startMechanism));
+				}else { //the vehicle trying to be added to the list is not a valid vehicle. Thus, clear all of the vehicles and return false to indicate an error
+					vehicleList.clear();
+					fileScanner.close();
+					return false;
+				}
 				
 			}
+
 			//Closing the scanner and then returning true to indicate a successful read
 			fileScanner.close();
 			return true;

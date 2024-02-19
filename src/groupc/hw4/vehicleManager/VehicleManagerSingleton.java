@@ -1,8 +1,13 @@
 package groupc.hw4.vehicleManager;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+import java.io.FileInputStream;
 
 import group.hw4.vehicles.AbstractVehicle;
+import group.hw4.vehicles.FuelType;
+import group.hw4.vehicles.StartMechanism;
+import group.hw4.vehicles.VehicleColor;
 
 public class VehicleManagerSingleton {
 
@@ -50,8 +55,57 @@ public class VehicleManagerSingleton {
 	 * @param fileName
 	 * */
 	public boolean readFromFile(String fileName) {
+		Scanner fileScanner=null; 
+		try {
+			fileScanner= new Scanner(new FileInputStream(VehicleFilePath));
+			//Checks to see if a file is empty. If it is, then return false
+			if(!fileScanner.hasNextLine()) {
+				return false;
+			}
+			
+			//Ignores the titles for each column
+			fileScanner.nextLine();
+			
+			while(fileScanner.hasNextLine()) {
+				//Splits each line into the different fields
+				String[] splitted = fileScanner.nextLine().split(",");
+				
+				//makes sure that the split line has the proper number of fields. 
+				//IF IT DOES NOT, close the scanner and return false to indicate the file was not read
+				if(splitted.length!=12) {
+					fileScanner.close();
+					return false;
+				}
+				
+				
+				//Splits the splitted string array to its different components
+				String type = splitted[0]; //Vehicle type TODO??
+				//,GasTankCapacity,StartType
+				String Model = splitted[1]; //the model of the vehicle
+				String Make = splitted[2]; //the make of the vehicle
+				long ModelYear = Long.parseLong(splitted[3]); // the year the vehicle was released
+				double price = Integer.parseInt(splitted[4]); //The price of the vehicle
+				VehicleColor color = VehicleColor.valueOf(splitted[5]); //Color of the vehicle
+				FuelType fueltype= FuelType.valueOf(splitted[6]); //type of fuel the vehicle uses
+				double Mileage = Double.parseDouble(splitted[7]); //The mileage of the vehicle
+				double mass = Double.parseDouble(splitted[8]); //The mass of the vehicle
+				int cylinders = Integer.parseInt(splitted[9]);
+				double gasTankCapacity= Double.parseDouble(splitted[10]);
+				StartMechanism startMechanism = StartMechanism.valueOf(splitted[11]);
+				
+				
+				
+			}
+			//Closing the scanner and then returning true to indicate a successful read
+			fileScanner.close();
+			return true;
+		}
+		catch (Exception e) { //Some error occurred that wasn't taken care of above in the try
+			return false;
+		}
 		
-		return false;
+
+		
 	}
 
 	/**

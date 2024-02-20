@@ -9,10 +9,11 @@ public class Main {
 		VehicleManagerSingleton vehicleManager = VehicleManagerSingleton.getInstance();
 		vehicleManager.VehicleManager("./files/vehicleList.csv");
 		// Read vehicle data from the vehcileList.csv file and initialize objects.
-		boolean flag =vehicleManager.readFromFile(null);
+		boolean flag = vehicleManager.readFromFile(null);
 		if(flag==false) {
 			System.out.println("Broken");
 		}
+		
 		// TODO
 		// Display all vehicle information.
 		// TODO

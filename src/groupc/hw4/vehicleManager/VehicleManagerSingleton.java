@@ -243,7 +243,27 @@ public class VehicleManagerSingleton {
 	 * vehicles (Use the Random class for random selection).
 	 */
 	public AbstractVehicle getVehicleWithHighestMaintenanceCost(double distance) {
-		return null;
+		if(vehicleList.size() == 0) return null;
+	    
+		ArrayList<AbstractVehicle> highestList = new ArrayList<AbstractVehicle>();
+		highestList.add(vehicleList.get(0));
+		double highestCost = highestList.get(0).calculateMaintenaceCost(distance);
+		
+		for(AbstractVehicle vehicle : vehicleList) {
+			double currCost = vehicle.calculateMaintenaceCost(distance);
+			if(currCost > highestCost) {
+				highestCost = currCost;
+				highestList.clear();
+				highestList.add(vehicle);
+			} else if(currCost == highestCost) {
+				highestList.add(vehicle);
+			}
+		}
+		
+		int randIndex = (int)(Math.random() * highestList.size());
+		
+		return highestList.get(randIndex);
+		
 	}
 
 	/**
@@ -253,7 +273,26 @@ public class VehicleManagerSingleton {
 	 * vehicles (Use the Random class for random selection).
 	 */
 	public AbstractVehicle getVehicleWithLowestMaintenanceCost(double distance) {
-		return null;
+		if(vehicleList.size() == 0) return null;
+	    
+		ArrayList<AbstractVehicle> lowestList = new ArrayList<AbstractVehicle>();
+		lowestList.add(vehicleList.get(0));
+		double lowestCost = lowestList.get(0).calculateMaintenaceCost(distance);
+		
+		for(AbstractVehicle vehicle : vehicleList) {
+			double currCost = vehicle.calculateMaintenaceCost(distance);
+			if(currCost < lowestCost) {
+				lowestCost = currCost;
+				lowestList.clear();
+				lowestList.add(vehicle);
+			} else if(currCost == lowestCost) {
+				lowestList.add(vehicle);
+			}
+		}
+		
+		int randIndex = (int)(Math.random() * lowestList.size());
+		
+		return lowestList.get(randIndex);
 	}
 
 	/**
@@ -263,7 +302,24 @@ public class VehicleManagerSingleton {
 	 * highest fuel efficiency in an ArrayList.
 	 */
 	public ArrayList<AbstractVehicle> getVehicleWithHighestFuelEfficiency(double distance, double fuelPrice) {
-		return null;
+		if(vehicleList.size() == 0) return null;
+	    
+		ArrayList<AbstractVehicle> highestList = new ArrayList<AbstractVehicle>();
+		highestList.add(vehicleList.get(0));
+		double highestEfficiency = highestList.get(0).calculateFuelEfficiency(distance, fuelPrice);
+		
+		for(AbstractVehicle vehicle : vehicleList) {
+			double currEfficiency = vehicle.calculateFuelEfficiency(distance, fuelPrice);
+			if(currEfficiency > highestEfficiency) {
+				highestEfficiency = currEfficiency;
+				highestList.clear();
+				highestList.add(vehicle);
+			} else if(currEfficiency == highestEfficiency) {
+				highestList.add(vehicle);
+			}
+		}
+		
+		return highestList;
 	}
 
 	/**
@@ -273,7 +329,24 @@ public class VehicleManagerSingleton {
 	 * lowest fuel efficiency in an ArrayList.
 	 */
 	public ArrayList<AbstractVehicle> getVehicleWithLowestFuelEfficiency(double distance, double fuelPrice) {
-		return null;
+		if(vehicleList.size() == 0) return null;
+	    
+		ArrayList<AbstractVehicle> lowestList = new ArrayList<AbstractVehicle>();
+		lowestList.add(vehicleList.get(0));
+		double lowestEfficiency = lowestList.get(0).calculateFuelEfficiency(distance, fuelPrice);
+		
+		for(AbstractVehicle vehicle : vehicleList) {
+			double currEfficiency = vehicle.calculateFuelEfficiency(distance, fuelPrice);
+			if(currEfficiency < lowestEfficiency) {
+				lowestEfficiency = currEfficiency;
+				lowestList.clear();
+				lowestList.add(vehicle);
+			} else if(currEfficiency == lowestEfficiency) {
+				lowestList.add(vehicle);
+			}
+		}
+		
+		return lowestList;
 	}
 
 	/**

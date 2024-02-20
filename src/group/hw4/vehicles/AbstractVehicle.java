@@ -2,6 +2,9 @@ package group.hw4.vehicles;
 
 public abstract class AbstractVehicle {
 	
+	// const //
+	protected final long currentYear = 2024;
+	
 	// variables ///////////////
 	protected String brand;
 	protected String make;

@@ -15,28 +15,21 @@ public class Truck extends AbstractVehicle{
 	// abstracted methods ///////////
 	@Override
 	public double calculateMaintenaceCost(double distance) {
-		/**
-		 * Expected formula:
-		 * maintenanceCost = distance * mass * (currentYear-modelYear) * cylinders * 0.002
-		 * */
-		return 0;
+		double maintenanceCost = distance * mass * (currentYear-modelYear) * cylinders * 0.002;
+		 
+		return maintenanceCost;
 	}
 
 	@Override
 	public double calculateFuelEfficiency(double distance, double fuelPrice) {
-		/**
-		 * Expected formula:
-		 * fuelEfficiency = cylinders * gasTankCapacity * fuelPrice / distance * 0.1
-		 * */
-		return 0;
+		double fuelEfficiency = cylinders * gasTankCapacity * fuelPrice / distance * 0.1;
+		 
+		return fuelEfficiency;
 	}
 
 	@Override
 	public void startEngine() {
-		/**
-		 * Expected formula:
-		 * KEYSTART
-		 * */
+		System.out.println(StartMechanism.KEYSTART);
 	}
 
 }

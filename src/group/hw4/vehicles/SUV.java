@@ -14,28 +14,21 @@ public class SUV extends AbstractVehicle{
 	// abstracted methods ///////////
 	@Override
 	public double calculateMaintenaceCost(double distance) {
-		/**
-		 * Expected formula:
-		 * maintenanceCost = distance * mass * (currentYear-modelYear) * cylinders * 0.001
-		 * */
-		return 0;
+		double maintenanceCost = distance * mass * (currentYear-modelYear) * cylinders * 0.001;
+		
+		return maintenanceCost;
 	}
 	
 	@Override
 	public double calculateFuelEfficiency(double distance, double fuelPrice) {
-		/**
-		 * Expected formula:
-		 * fuelEfficiency = cylinders * gasTankCapacity * fuelPrice / distance * 0.05
-		 * */
-		return 0;
+		double fuelEfficiency = cylinders * gasTankCapacity * fuelPrice / distance * 0.05;
+		
+		return fuelEfficiency;
 	}
 	
 	@Override
 	public void startEngine() {
-		/**
-		 * Expected formula:
-		 * PUSHSTART
-		 * */
+		System.out.println(StartMechanism.PUSHSTART);
 	}
 
 }

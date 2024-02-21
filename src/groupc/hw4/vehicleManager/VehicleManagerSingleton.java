@@ -209,8 +209,22 @@ public class VehicleManagerSingleton {
 	 * vehicle starts, of all the vehicles in the vehicleList
 	 * 
 	 * Print an appropriate message if the list is empty
+	 * 
+	 * Author: Zoe
 	 */
 	public void displayAllVehicleInformation() {
+		
+		//checks to see if there is nothing in the list and prints a message if there is nothing.
+		boolean emptyFlag=vehicleList.isEmpty();
+		if(emptyFlag ==true) {
+			System.out.println("There are no vehicles in the VehicleList");
+			return;
+		}
+		//prints the toStrings of each of the vehicles
+		for (AbstractVehicle vehicle:vehicleList) {
+			System.out.println(vehicle.toString());
+		}
+		
 	}
 	/**
 	 * Removes the given vehicle from the vehicleList.

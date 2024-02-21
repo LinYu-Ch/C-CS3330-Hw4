@@ -40,4 +40,15 @@ public class Truck extends AbstractVehicle{
 				+ ", fuelType=" + fuelType + ", mileage=" + mileage + ", mass=" + mass + ", cylinders=" + cylinders
 				+ ", startType=" + startType + ", GasTankCapacity=" + gasTankCapacity +  "]";
 	}
+	
+	//equals override that checks the class as well, returning false if the classes don't match 
+	@Override
+	public boolean equals(Object obj) {
+		if(obj.getClass() == this.getClass()) {
+			return super.equals(obj);
+		}
+		return false;
+	}
 }
+
+

@@ -158,9 +158,9 @@ public abstract class AbstractVehicle {
 	// to string method
 	@Override
 	public String toString() {
-		return "Vehicle [brand=" + brand + ", modelYear=" + modelYear + ", price=" + price + ", color=" + color
+		return "Vehicle [brand=" + brand + ", make=" + make+ ",  modelYear=" + modelYear + ", price=" + price + ", color=" + color
 				+ ", fuelType=" + fuelType + ", mileage=" + mileage + ", mass=" + mass + ", cylinders=" + cylinders
-				+ ", startType=" + startType + "]";
+				+ ", startType=" + startType + ", GasTankCapacity=" + gasTankCapacity +  "]";
 	}
 	
 	//equals method - author Zoe
@@ -168,15 +168,14 @@ public abstract class AbstractVehicle {
 	public boolean equals(Object obj) {
 		//casts objects as vehicle
 		AbstractVehicle vehicle = ((AbstractVehicle)obj);
-		
 		//tests all the fields to see if they are the same
-		if(this.brand == vehicle.getBrand() &&
+		if(this.brand.equals(vehicle.getBrand()) &&
 				this.color == vehicle.getColor() &&
 				this.modelYear == vehicle.getModelYear() &&
 				this.cylinders == vehicle.getCylinders() &&
 				this.fuelType == vehicle.getFuelType() &&
 				this.gasTankCapacity == vehicle.getGasTankCapacity() &&
-				this.make == vehicle.getMake() &&
+				this.make.equals(vehicle.getMake()) &&
 				this.mass == vehicle.getMass() &&
 				this.mileage == vehicle.getMileage() &&
 				this.price == vehicle.getPrice() &&

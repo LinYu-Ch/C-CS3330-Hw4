@@ -174,19 +174,34 @@ public class VehicleManagerSingleton {
 	 * @param v
 	 */
 	public void displayVehicleInformation(AbstractVehicle v) {
-		//checks if vehicle exists
-		boolean containsFlag= vehicleList.contains(v);
+//		//checks if vehicle exists
+//		boolean containsFlag= vehicleList.contains(v);
+//		
+//		//displays a message if the vehicle is not found and returns
+//		if(containsFlag == false) {
+//			System.out.println(v + " Does not exist");
+//			return;
+//		}
+//		
+//		//gets the index of the vehicle
+//		int index =vehicleList.indexOf(v);
+//		//prints out the vehicle information
+//		System.out.println(vehicleList.get(index).toString());
 		
-		//displays a message if the vehicle is not found and returns
-		if(containsFlag == false) {
-			System.out.println(v + " Does not exist");
-			return;
+		
+		if (v != null) {
+			//goes through each vehicle in the vehicleList and uses the equals function to test if they are the same.
+			for (AbstractVehicle vehicle:vehicleList) {
+				//if the two vehicles are the same, then print a string with the information
+				if (vehicle.equals(v)==true)
+				{
+					System.out.println(v.toString());
+					return;
+				}
+			}
 		}
-		
-		//gets the index of the vehicle
-		int index =vehicleList.indexOf(v);
-		//prints out the vehicle information
-		System.out.println(vehicleList.get(index).toString());
+		//vehicle not found - prints message
+		System.out.println(v+ " Does not exist");
 	}
 	
 	/**

@@ -32,4 +32,12 @@ public class Truck extends AbstractVehicle{
 		System.out.println(StartMechanism.KEYSTART);
 	}
 
+	
+	//toString override
+	@Override
+	public String toString() {
+		return "[Vehicletype="+"Truck"+", brand=" + brand + ", make=" + make+ ",  modelYear=" + modelYear + ", price=" + price + ", color=" + color
+				+ ", fuelType=" + fuelType + ", mileage=" + mileage + ", mass=" + mass + ", cylinders=" + cylinders
+				+ ", startType=" + startType + ", GasTankCapacity=" + gasTankCapacity +  "]";
+	}
 }

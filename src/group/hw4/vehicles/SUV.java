@@ -30,5 +30,13 @@ public class SUV extends AbstractVehicle{
 	public void startEngine() {
 		System.out.println(StartMechanism.PUSHSTART);
 	}
+	
+	//toString override
+	@Override
+	public String toString() {
+		return "[Vehicletype="+"SUV"+", brand=" + brand + ", make=" + make+ ",  modelYear=" + modelYear + ", price=" + price + ", color=" + color
+				+ ", fuelType=" + fuelType + ", mileage=" + mileage + ", mass=" + mass + ", cylinders=" + cylinders
+				+ ", startType=" + startType + ", GasTankCapacity=" + gasTankCapacity +  "]";
+	}
 
 }

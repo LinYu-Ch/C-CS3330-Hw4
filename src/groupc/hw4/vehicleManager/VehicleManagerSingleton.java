@@ -238,8 +238,16 @@ public class VehicleManagerSingleton {
 	/**
 	 * Adds the given vehicle into the vehicleList.
 	 * Returns true if the addition is successful, false otherwise.
+	 * 
+	 * Author: Ando
+	 * @param vehicle The new vehicle to add to the list
+	 * @return true on success, false on failure
 	 */
 	public boolean addVehicle(AbstractVehicle vehicle) {
+		if(vehicle != null) {
+			vehicleList.add(vehicle);
+			return true;
+		}
 		return false;
 	}
 

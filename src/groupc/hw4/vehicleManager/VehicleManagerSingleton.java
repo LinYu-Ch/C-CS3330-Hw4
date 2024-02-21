@@ -2,16 +2,17 @@ package groupc.hw4.vehicleManager;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.io.FileInputStream;
 
-import group.hw4.vehicles.AbstractVehicle;
-import group.hw4.vehicles.Car;
-import group.hw4.vehicles.FuelType;
-import group.hw4.vehicles.MotorBike;
-import group.hw4.vehicles.SUV;
-import group.hw4.vehicles.StartMechanism;
-import group.hw4.vehicles.Truck;
-import group.hw4.vehicles.VehicleColor;
+import groupc.hw4.vehicles.AbstractVehicle;
+import groupc.hw4.vehicles.Car;
+import groupc.hw4.vehicles.FuelType;
+import groupc.hw4.vehicles.MotorBike;
+import groupc.hw4.vehicles.SUV;
+import groupc.hw4.vehicles.StartMechanism;
+import groupc.hw4.vehicles.Truck;
+import groupc.hw4.vehicles.VehicleColor;
+
+import java.io.FileInputStream;
 
 public class VehicleManagerSingleton {
 

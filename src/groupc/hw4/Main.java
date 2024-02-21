@@ -1,11 +1,11 @@
 package groupc.hw4;
 
-import group.hw4.vehicles.Car;
-import group.hw4.vehicles.FuelType;
-import group.hw4.vehicles.StartMechanism;
-import group.hw4.vehicles.Truck;
-import group.hw4.vehicles.VehicleColor;
 import groupc.hw4.vehicleManager.VehicleManagerSingleton;
+import groupc.hw4.vehicles.Car;
+import groupc.hw4.vehicles.FuelType;
+import groupc.hw4.vehicles.StartMechanism;
+import groupc.hw4.vehicles.Truck;
+import groupc.hw4.vehicles.VehicleColor;
 
 public class Main {
 

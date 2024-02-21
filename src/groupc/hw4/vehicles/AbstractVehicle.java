@@ -1,4 +1,4 @@
-package group.hw4.vehicles;
+package groupc.hw4.vehicles;
 
 public abstract class AbstractVehicle {
 	

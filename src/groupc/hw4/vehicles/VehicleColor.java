@@ -1,7 +1,7 @@
 /**
  * 
  */
-package group.hw4.vehicles;
+package groupc.hw4.vehicles;
 
 /**
  * Enum for different vehicle colors

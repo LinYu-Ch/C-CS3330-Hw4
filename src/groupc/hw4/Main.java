@@ -5,14 +5,12 @@ import groupc.hw4.vehicleManager.VehicleManagerSingleton;
 public class Main {
 
 	public static void main(String[] args) {
-		// Instantiate vehicleManager, perform operations based on the requirements. TODO this is modified from what the canvas documents have
+		// Instantiate vehicleManager, perform operations based on the requirements. 
 		VehicleManagerSingleton vehicleManager = VehicleManagerSingleton.getInstance();
-		vehicleManager.VehicleManager("./files/vehicleList.csv");
+		boolean vehicleManagerFlag = false;
+		vehicleManagerFlag = vehicleManager.initializeStock();
+		System.out.println("initializeStock(): "+vehicleManagerFlag);
 		// Read vehicle data from the vehcileList.csv file and initialize objects.
-		boolean flag = vehicleManager.readFromFile(null);
-		if(flag==false) {
-			System.out.println("Broken");
-		}
 		
 		// TODO
 		// Display all vehicle information.

@@ -20,8 +20,8 @@ public class VehicleManagerSingleton {
 	
 	
 	//Variable to keep track of the CSV file relative path. 
-	//Note that unlike HW3, since the path is set up during initialization, VehicleFilePath is NOT final
-	private String VehicleFilePath = null;
+	//final to avoid modifications
+	private final String VehicleFilePath = "./files/vehicleList.csv";
 	
 	//An arraylist to hold each of the vehicles read from the CSV file
 	ArrayList<AbstractVehicle> vehicleList;
@@ -58,7 +58,7 @@ public class VehicleManagerSingleton {
 	 * @return true if the read file and initialization are successful. false if cannot read/find the file
 	 * @param fileName
 	 * */
-	public boolean readFromFile(String fileName) {
+	public boolean initializeStock() {
 		Scanner fileScanner=null; 
 		try {
 			fileScanner= new Scanner(new FileInputStream(VehicleFilePath));
@@ -127,16 +127,6 @@ public class VehicleManagerSingleton {
 		
 	}
 
-	/**
-	 * Constructor that reads the data from a CSV file located at vehicleFilePath. Initialize each
-	 * of the Vehicle objects (Hint: call readFromFile).
-	 * @param fileName
-	 */
-	public void VehicleManager(String fileName) {
-		//initialize filepath to fileName
-		this.VehicleFilePath=fileName;
-		
-	}
 	
 	/**
 	 * This will display the information, including maintenance cost, fuel efficiency, and how

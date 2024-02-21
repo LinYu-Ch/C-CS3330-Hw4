@@ -1,5 +1,9 @@
 package groupc.hw4;
 
+import group.hw4.vehicles.Car;
+import group.hw4.vehicles.FuelType;
+import group.hw4.vehicles.StartMechanism;
+import group.hw4.vehicles.VehicleColor;
 import groupc.hw4.vehicleManager.VehicleManagerSingleton;
 
 public class Main {
@@ -10,7 +14,9 @@ public class Main {
 		boolean vehicleManagerFlag = false;
 		vehicleManagerFlag = vehicleManager.initializeStock();
 		System.out.println("initializeStock(): "+vehicleManagerFlag);
-		// Read vehicle data from the vehcileList.csv file and initialize objects.
+		Car car = new Car("Nissan","Sentra",2018,18000,VehicleColor.RED,FuelType.GASOLINE,1000,0.3,6,14,StartMechanism.PUSHSTART);
+		vehicleManager.displayVehicleInformation(car);
+		vehicleManager.displayVehicleInformation(null);
 		
 		// TODO
 		// Display all vehicle information.

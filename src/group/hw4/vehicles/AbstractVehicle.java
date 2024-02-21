@@ -135,6 +135,26 @@ public abstract class AbstractVehicle {
 		this.startType = startType;
 	}
 	
+
+	public String getMake() {
+		return make;
+	}
+
+
+	public void setMake(String make) {
+		this.make = make;
+	}
+
+
+	public double getGasTankCapacity() {
+		return gasTankCapacity;
+	}
+
+
+	public void setGasTankCapacity(double gasTankCapacity) {
+		this.gasTankCapacity = gasTankCapacity;
+	}
+	
 	// to string method
 	@Override
 	public String toString() {
@@ -142,4 +162,33 @@ public abstract class AbstractVehicle {
 				+ ", fuelType=" + fuelType + ", mileage=" + mileage + ", mass=" + mass + ", cylinders=" + cylinders
 				+ ", startType=" + startType + "]";
 	}
+	
+	//equals method - author Zoe
+	@Override
+	public boolean equals(Object obj) {
+		//casts objects as vehicle
+		AbstractVehicle vehicle = ((AbstractVehicle)obj);
+		
+		//tests all the fields to see if they are the same
+		if(this.brand == vehicle.getBrand() &&
+				this.color == vehicle.getColor() &&
+				this.modelYear == vehicle.getModelYear() &&
+				this.cylinders == vehicle.getCylinders() &&
+				this.fuelType == vehicle.getFuelType() &&
+				this.gasTankCapacity == vehicle.getGasTankCapacity() &&
+				this.make == vehicle.getMake() &&
+				this.mass == vehicle.getMass() &&
+				this.mileage == vehicle.getMileage() &&
+				this.price == vehicle.getPrice() &&
+				this.startType ==vehicle.getStartType()				
+				) {
+			
+			return true;
+		}
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	
 }

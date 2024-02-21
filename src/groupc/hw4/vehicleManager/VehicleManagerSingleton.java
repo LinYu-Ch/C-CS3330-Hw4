@@ -35,10 +35,12 @@ public class VehicleManagerSingleton {
 	}
 	
 	/**
-	 * TODO
+	 * 
 	 * 
 	 * This is a method to get the ONLY instance of the VehicleManager
-	 * @return
+	 * Author:Zoe
+	 * 
+	 * @return VehicleManager instance
 	 */
 	public static VehicleManagerSingleton getInstance() {
 		if(instance == null) {
@@ -172,6 +174,19 @@ public class VehicleManagerSingleton {
 	 * @param v
 	 */
 	public void displayVehicleInformation(AbstractVehicle v) {
+		//checks if vehicle exists
+		boolean containsFlag= vehicleList.contains(v);
+		
+		//displays a message if the vehicle is not found and returns
+		if(containsFlag == false) {
+			System.out.println(v + " Does not exist");
+			return;
+		}
+		
+		//gets the index of the vehicle
+		int index =vehicleList.indexOf(v);
+		//prints out the vehicle information
+		System.out.println(vehicleList.get(index).toString());
 	}
 	
 	/**

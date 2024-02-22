@@ -27,6 +27,10 @@ public class VehicleManagerSingleton {
 	//An arraylist to hold each of the vehicles read from the CSV file
 	ArrayList<AbstractVehicle> vehicleList;
 	
+	//Distance and fuel price variables
+	private final static double distance = 300;
+	private final static double fuelPrice =3.25;
+	
 	/**
 	 * base constructor that is private to avoid creating multiple copies of the same singleton
 	 */
@@ -197,6 +201,8 @@ public class VehicleManagerSingleton {
 				if (vehicle.equals(v)==true)
 				{
 					System.out.println(v.toString());
+					System.out.println("Maintenence cost: "+ v.calculateMaintenaceCost(distance));
+					System.out.println("Fuel Efficiency: "+ v.calculateFuelEfficiency(distance, fuelPrice));
 					return;
 				}
 			}
@@ -219,11 +225,14 @@ public class VehicleManagerSingleton {
 		boolean emptyFlag=vehicleList.isEmpty();
 		if(emptyFlag ==true) {
 			System.out.println("There are no vehicles in the VehicleList");
+			
 			return;
 		}
 		//prints the toStrings of each of the vehicles
 		for (AbstractVehicle vehicle:vehicleList) {
 			System.out.println(vehicle.toString());
+			System.out.println("Maintenence cost: "+ vehicle.calculateMaintenaceCost(distance));
+			System.out.println("Fuel Efficiency: "+ vehicle.calculateFuelEfficiency(distance, fuelPrice));
 		}
 		
 	}

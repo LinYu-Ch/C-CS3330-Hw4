@@ -72,7 +72,11 @@ public class Main {
 		}
 		System.out.println("--------------------------------------------------------------------------------");
 		
-		
+		vehicleManager.removeVehicle(car);
+		vehicleManager.removeVehicle(car);
+		vehicleManager.removeVehicle(car);
+		vehicleManager.removeVehicle(car);
+		vehicleManager.saveVehicleList();
 		
 	}
 

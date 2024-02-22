@@ -230,8 +230,17 @@ public class VehicleManagerSingleton {
 	/**
 	 * Removes the given vehicle from the vehicleList.
 	 * Returns true if the removal is successful, false otherwise.
+	 * 
+	 * Author: Ando
+	 * @param vehicle The vehicle to remove from the list
+	 * @return true on success, false on failure or if not in the array
 	 */
 	public boolean removeVehicle(AbstractVehicle vehicle) {
+		if(vehicleList.size()!=0)
+		{
+			return vehicleList.remove(vehicle);
+
+		}
 		return false;
 	}
 

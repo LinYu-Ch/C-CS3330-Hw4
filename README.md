@@ -16,21 +16,21 @@ TODO
 _- Zoe:_
 TODO
 
-_- Ryan:_
-Completed the following methods:
-    -  getVehicleWithHighestMaintenanceCost
-    -  getVehicleWithLowestMaintenanceCost
-    -  getVehicleWithHighestFuelEfficiency
-    -  getVehicleWithLowestFuelEfficiency
+*** - Ryan: ***  
+Completed the following methods:  
+-  getVehicleWithHighestMaintenanceCost  
+-  getVehicleWithLowestMaintenanceCost  
+-  getVehicleWithHighestFuelEfficiency  
+-  getVehicleWithLowestFuelEfficiency  
 
-Additionally:
-    - Wrote test code for the 4 methods above
-    - Wrote test code for Singleton Design Pattern
-    - Wrote code to clean up vehicleList.csv after program completion
-    - Implemented the following abstract methods for each subclass of AbstractVehicle
-        * calculateMaintenaceCost
-        * calculateFuelEfficiency
-        * startEngine
+Additionally:  
+- Wrote test code for the 4 methods above  
+- Wrote test code for Singleton Design Pattern  
+- Wrote code to clean up vehicleList.csv after program completion  
+- Implemented the following abstract methods for each subclass of   AbstractVehicle  
+    * calculateMaintenaceCost  
+    * calculateFuelEfficiency  
+    * startEngine  
 
 _- Ando:_
 TODO

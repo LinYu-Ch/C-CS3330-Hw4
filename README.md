@@ -16,7 +16,8 @@ TODO
 _- Zoe:_
 TODO
 
-*** - Ryan: ***  
+_- Ryan:_  
+    
 Completed the following methods:  
 -  getVehicleWithHighestMaintenanceCost  
 -  getVehicleWithLowestMaintenanceCost  

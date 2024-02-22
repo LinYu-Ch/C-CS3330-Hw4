@@ -1,6 +1,9 @@
 package groupc.hw4;
 
+import java.util.ArrayList;
+
 import groupc.hw4.vehicleManager.VehicleManagerSingleton;
+import groupc.hw4.vehicles.AbstractVehicle;
 import groupc.hw4.vehicles.Car;
 import groupc.hw4.vehicles.FuelType;
 import groupc.hw4.vehicles.StartMechanism;
@@ -29,8 +32,10 @@ public class Main {
 		vehicleManager.displayAllVehicleInformation();
 		System.out.println("--------------------------------------------------------------------------------");
 		
+		System.out.println("\n-------------------------Saving Vehicle List--------------------------------");
 		boolean saveFlag=vehicleManager.saveVehicleList();
-		System.out.println(saveFlag);
+		System.out.println("Return value of vehicleManager.saveVehicleList(): " + saveFlag);
+		System.out.println("--------------------------------------------------------------------------------");
 		// TODO
 		// Display all vehicle information.
 		// TODO
@@ -38,6 +43,37 @@ public class Main {
 		// TODO
 		// Display all motorbike information.
 		// TODO
+		
+		System.out.println("\n-------------------------Vehicle with Lowest Maintenance Cost--------------------------------");
+		AbstractVehicle lowestMaintenance = vehicleManager.getVehicleWithLowestMaintenanceCost(300);
+		System.out.println(lowestMaintenance);
+		System.out.println("Maintenance Cost: " + lowestMaintenance.calculateMaintenaceCost(300));
+		System.out.println("--------------------------------------------------------------------------------");
+		
+		System.out.println("\n-------------------------Vehicle with Highest Maintenance Cost--------------------------------");
+		AbstractVehicle highestMaintenance = vehicleManager.getVehicleWithHighestMaintenanceCost(300);
+		System.out.println(highestMaintenance);
+		System.out.println("Maintenance Cost: " + highestMaintenance.calculateMaintenaceCost(300));
+		System.out.println("--------------------------------------------------------------------------------");
+		
+		System.out.println("\n-------------------------Vehicle with Lowest Fuel Efficiency--------------------------------");
+		ArrayList<AbstractVehicle> lowestEfficiency = vehicleManager.getVehicleWithLowestFuelEfficiency(300, 3.25);
+		for (AbstractVehicle vehicle : lowestEfficiency) {
+			System.out.println(vehicle);
+			System.out.println("Fuel Efficiency: " + vehicle.calculateFuelEfficiency(300, 3.25));
+		}
+		System.out.println("--------------------------------------------------------------------------------");
+		
+		System.out.println("\n-------------------------Vehicle with Highest Fuel Efficiency--------------------------------");
+		ArrayList<AbstractVehicle> highestEfficiency = vehicleManager.getVehicleWithHighestFuelEfficiency(300, 3.25);
+		for (AbstractVehicle vehicle : highestEfficiency) {
+			System.out.println(vehicle);
+			System.out.println("Fuel Efficiency: " + vehicle.calculateFuelEfficiency(300, 3.25));
+		}
+		System.out.println("--------------------------------------------------------------------------------");
+		
+		
+		
 	}
 
 }

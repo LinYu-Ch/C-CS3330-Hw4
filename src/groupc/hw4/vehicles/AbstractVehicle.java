@@ -187,6 +187,15 @@ public abstract class AbstractVehicle {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	/**
+	 * returns a File compatible string of what the class is
+	 * @param obj
+	 * @return string representing the class
+	 */
+	public String getClassString() {
+		return "AbstractVehicle";
+	}
 
 
 	

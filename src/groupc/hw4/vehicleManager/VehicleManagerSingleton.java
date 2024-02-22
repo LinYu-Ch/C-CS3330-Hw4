@@ -12,7 +12,10 @@ import groupc.hw4.vehicles.StartMechanism;
 import groupc.hw4.vehicles.Truck;
 import groupc.hw4.vehicles.VehicleColor;
 
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class VehicleManagerSingleton {
 
@@ -94,7 +97,7 @@ public class VehicleManagerSingleton {
 				String model = splitted[1]; //the model of the vehicle (Also called Brand
 				String make = splitted[2]; //the make of the vehicle
 				long modelYear = Long.parseLong(splitted[3]); // the year the vehicle was released
-				double price = Integer.parseInt(splitted[4]); //The price of the vehicle
+				double price = Double.parseDouble(splitted[4]); //The price of the vehicle
 				VehicleColor color = VehicleColor.valueOf(splitted[5]); //Color of the vehicle
 				FuelType fuelType= FuelType.valueOf(splitted[6]); //type of fuel the vehicle uses
 				double mileage = Double.parseDouble(splitted[7]); //The mileage of the vehicle
@@ -119,6 +122,7 @@ public class VehicleManagerSingleton {
 					fileScanner.close();
 					return false;
 				}
+				
 				
 			}
 
@@ -268,14 +272,65 @@ public class VehicleManagerSingleton {
 		}
 		return false;
 	}
+	
+	
+	/**
+	 * A helper method that creates a compatible string to write to the vehicle file.
+	 * Similar to toString, except for the formatting of the string returned
+	 * 
+	 * Author: Zoe
+	 */
+	private static String fileCompatibleStringGenerator(AbstractVehicle i) {
+		return i.getClassString()+","+
+				i.getBrand()+ ","+
+				i.getMake()+ "," +
+				i.getModelYear() + "," +
+				i.getPrice() + "," +
+				i.getColor()+ "," +
+				i.getFuelType()+ "," +
+				i.getMileage()+ "," +
+				i.getMass()+ "," +
+				i.getCylinders()+ "," +
+				i.getGasTankCapacity()+ "," +
+				i.getStartType();
+	}
 
 	/**
 	 * Saves the updated vehicleList back to the CSV file located at vehicleFilePath.
 	 * Overwrites the existing file with the updated data.
 	 * Returns true if the saving is successful, false otherwise (file does not exist, or file empty).
+	 * 
+	 * Author: Zoe 
+	 * Note that much of the code is using what our group implemented in HW 3 
 	 */
 	public boolean saveVehicleList() {
-		return false;
+		try {
+			//open the VehicleFilePath file
+			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(VehicleFilePath)); 
+			
+			//Writing the first line "Type,Model,Make,ModelYear,Price,Color,FuelType,Mileage,Mass,Cylinders,GasTankCapacity,StartType" to the file
+			String FirstLine= "Type,Model,Make,ModelYear,Price,Color,FuelType,Mileage,Mass,Cylinders,GasTankCapacity,StartType\n";
+			bufferedWriter.write(FirstLine);
+			
+			//Write all the vehicles to the file
+			for (int i=0; i<(vehicleList.size());i++) {
+				//Since the toString adds some formatting, the below line is effectively creating a toString that is compatible to be stored in the file...
+				String stringToWrite = fileCompatibleStringGenerator(vehicleList.get(i));
+				bufferedWriter.write(stringToWrite);
+				//adds a newline after every inventory item added
+				bufferedWriter.write("\n");
+			}
+			
+			//close the buffered writer
+			bufferedWriter.close();
+			
+			
+		}catch(IOException exception) {
+			//writing failed
+			return false;
+		}
+		//writing succeeded
+		return true;
 	}
 
 	/**

@@ -15,7 +15,8 @@ public class Main {
 		boolean vehicleManagerFlag = false;
 		vehicleManagerFlag = vehicleManager.initializeStock();
 		System.out.println("initializeStock(): "+vehicleManagerFlag);
-		Car car = new Car("Nissan","Sentra",2018,18000,VehicleColor.RED,FuelType.GASOLINE,1000,0.3,6,14,StartMechanism.PUSHSTART);
+		Car car = new Car("FALSECAR","Sentra",2018,18000,VehicleColor.RED,FuelType.GASOLINE,1000,0.3,6,14,StartMechanism.PUSHSTART);
+		vehicleManager.addVehicle(car);
 		
 		System.out.println("\n-------------------------Displaying Specific Vehicle Information----------------");
 		System.out.println("\n---A car that exists:");
@@ -28,6 +29,8 @@ public class Main {
 		vehicleManager.displayAllVehicleInformation();
 		System.out.println("--------------------------------------------------------------------------------");
 		
+		boolean saveFlag=vehicleManager.saveVehicleList();
+		System.out.println(saveFlag);
 		// TODO
 		// Display all vehicle information.
 		// TODO

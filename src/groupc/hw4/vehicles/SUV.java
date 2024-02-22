@@ -47,5 +47,14 @@ public class SUV extends AbstractVehicle{
 		}
 		return false;
 	}
+	
+	/**
+	 * returns a File compatible string of what the class is
+	 * @param obj
+	 * @return string representing the class
+	 */
+	public String getClassString() {
+		return "SUV";
+	}
 
 }

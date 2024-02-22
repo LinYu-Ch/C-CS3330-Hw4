@@ -291,9 +291,23 @@ public class VehicleManagerSingleton {
 	 * Returns the number of objects in the vehicle list based on the object vehicle type
 	 * Use the isVehicleType(Vehicle v, Class clazz) method.
 	 * Call example: getNumberOfVehiclesByType(SUV.class);
+	 * 
+	 * Author: Ando
+	 * @param clazz type to check for
+	 * @return number of objects in the vehicle list that match the type
 	*/
 	public int getNumberOfVehiclesByType(Class clazz) {
-		return 0;
+		if (clazz == null) {
+			return 0;
+		}
+		
+		int counter = 0;
+		for (AbstractVehicle vehicle : vehicleList) {
+			if(isVehicleType(vehicle, clazz)){
+			counter++;
+			}
+		}
+		return counter;
 	}
 
 	/**

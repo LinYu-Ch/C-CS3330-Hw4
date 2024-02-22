@@ -13,11 +13,18 @@ import groupc.hw4.vehicles.VehicleColor;
 public class Main {
 
 	public static void main(String[] args) {
-		// Instantiate vehicleManager, perform operations based on the requirements. 
+		// Instantiate vehicleManager and confirm Singleton design works
 		VehicleManagerSingleton vehicleManager = VehicleManagerSingleton.getInstance();
+		VehicleManagerSingleton vehicleManager2 = VehicleManagerSingleton.getInstance();
+		
+		System.out.println("\n-------------------------Confirm Singleton Design Works----------------");
+		System.out.println("vehicleManager.equals(vehicleManager2): " + vehicleManager.equals(vehicleManager2));
+		System.out.println("--------------------------------------------------------------------------------");
+		
+		// Perform operations based on the requirements. 
 		boolean vehicleManagerFlag = false;
 		vehicleManagerFlag = vehicleManager.initializeStock();
-		System.out.println("initializeStock(): "+vehicleManagerFlag);
+		System.out.println("initializeStock(): "+ vehicleManagerFlag);
 		Car car = new Car("FALSECAR","Sentra",2018,18000,VehicleColor.RED,FuelType.GASOLINE,1000,0.3,6,14,StartMechanism.PUSHSTART);
 		vehicleManager.addVehicle(car);
 		
@@ -72,9 +79,8 @@ public class Main {
 		}
 		System.out.println("--------------------------------------------------------------------------------");
 		
-		vehicleManager.removeVehicle(car);
-		vehicleManager.removeVehicle(car);
-		vehicleManager.removeVehicle(car);
+		
+		// Clean up so vehicleList.csv returns to original state
 		vehicleManager.removeVehicle(car);
 		vehicleManager.saveVehicleList();
 		

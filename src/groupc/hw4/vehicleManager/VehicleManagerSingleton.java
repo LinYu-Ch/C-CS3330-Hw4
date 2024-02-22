@@ -274,8 +274,16 @@ public class VehicleManagerSingleton {
 	 * If the given vehicle object is the object type, then return true, otherwise return false.
 	 * Use instanceof or getClass() to count the number.
 	 * Call example: isVehicleType(vehicleObj, Truck.class);
+	 * 
+	 * Author: Ando
+	 * @param v vehicle object to check
+	 * @param clazz type to check for
+	 * @return true if matching type, false if not
 	 */
 	private boolean isVehicleType(AbstractVehicle v, Class clazz) {
+		if(v.getClass() == clazz) {
+			return true;
+		}
 		return false;
 	}
 
@@ -283,7 +291,7 @@ public class VehicleManagerSingleton {
 	 * Returns the number of objects in the vehicle list based on the object vehicle type
 	 * Use the isVehicleType(Vehicle v, Class clazz) method.
 	 * Call example: getNumberOfVehiclesByType(SUV.class);
-	 */
+	*/
 	public int getNumberOfVehiclesByType(Class clazz) {
 		return 0;
 	}

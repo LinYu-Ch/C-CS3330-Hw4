@@ -448,9 +448,7 @@ public class VehicleManagerSingleton {
 		
 		for(AbstractVehicle vehicle : vehicleList) {
 			double currEfficiency = vehicle.calculateFuelEfficiency(distance, fuelPrice);
-			System.out.println(currEfficiency);
 			if(currEfficiency > highestEfficiency) {
-//				System.out.println(currEfficiency);
 				highestEfficiency = currEfficiency;
 				highestList.clear();
 				highestList.add(vehicle);

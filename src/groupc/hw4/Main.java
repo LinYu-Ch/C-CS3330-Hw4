@@ -45,11 +45,24 @@ public class Main {
 		System.out.println("--------------------------------------------------------------------------------");
 		// TODO
 		// Display all vehicle information.
-		// TODO
-		// Display all car information.
-		// TODO
-		// Display all motorbike information.
-		// TODO
+		
+		System.out.println("\n-------------------------Displaying information of all Cars--------------------------------");
+		vehicleManager.displayAllCarInformation();
+		System.out.println("--------------------------------------------------------------------------------");
+
+		System.out.println("\n-------------------------Displaying information of all Trucks--------------------------------");
+		vehicleManager.displayAllTruckInformation();
+		System.out.println("--------------------------------------------------------------------------------");
+
+		System.out.println("\n-------------------------Displaying information of all SUVs--------------------------------");
+		vehicleManager.displayAllSUVInformation();
+		System.out.println("--------------------------------------------------------------------------------");
+
+		System.out.println("\n-------------------------Displaying information of all Bikes--------------------------------");
+		vehicleManager.displayAllMotorBikeInformation();
+		System.out.println("--------------------------------------------------------------------------------");
+
+
 		
 		System.out.println("\n-------------------------Vehicle with Lowest Maintenance Cost--------------------------------");
 		AbstractVehicle lowestMaintenance = vehicleManager.getVehicleWithLowestMaintenanceCost(300);

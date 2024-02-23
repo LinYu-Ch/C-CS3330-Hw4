@@ -22,9 +22,9 @@ Completed the following methods:
 - saveVehicleList()
 
 Additionally:
--implemented singleton design pattern in vehicleManager by making a private constructor, adding a filePath variable, an instance variable, and a way to get the instance of the singleton.
--added equal methods for each of the different vehicles + abstract vehicle class
--toString methods for each of the concrete vehicles
+- implemented singleton design pattern in vehicleManager by making a private constructor, adding a filePath variable, an instance variable, and a way to get the instance of the singleton.
+- added equal methods for each of the different vehicles + abstract vehicle class
+- toString methods for each of the concrete vehicles
 
 _- Ryan:_  
     

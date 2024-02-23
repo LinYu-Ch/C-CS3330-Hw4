@@ -135,46 +135,92 @@ public class VehicleManagerSingleton {
 		}
 		
 
-		
 	}
 
-	
 	/**
 	 * This will display the information, including maintenance cost, fuel efficiency, and how
 	 * the vehicle starts, of all the cars present in the vehicleList.
 	 * 
+	 * Author: John
+	 * 
 	 * If the vehicle is not found, then print an appropriate error message.
 	 */
 	public void displayAllCarInformation() {
+		boolean hasVehicle = false;
+		for (AbstractVehicle vehicle : vehicleList) {
+			if (vehicle instanceof Car){
+				hasVehicle = true;
+				System.out.println(vehicle.toString());
+			}
+		}
+		if (hasVehicle == false) {
+			System.out.println("There are no SUVs in the current list");
+		}
 	}
 	
 	/**
 	 * This will display the information, including maintenance cost, fuel efficiency, and how
 	 * the vehicle starts, of all the trucks present in the vehicleList.
 	 * 
+	 * Author: John
+	 * 
 	 * If the vehicle is not found, then print an appropriate error message.
 	 */
 	public void displayAllTruckInformation() {
+		boolean hasVehicle = false;
+		for (AbstractVehicle vehicle : vehicleList) {
+			if (vehicle instanceof Truck){
+				hasVehicle = true;
+				System.out.println(vehicle.toString());
+			}
+		}
+		if (hasVehicle == false) {
+			System.out.println("There are no SUVs in the current list");
+		}
 	}
 	
 	/**
 	 * This will display the information, including maintenance cost, fuel efficiency, and how
 	 * the vehicle starts, of all the SUVs present in the vehicleList.
 	 * 
+	 * Author: John
+	 * 
 	 * If the vehicle is not found, then print an appropriate error message.
 	 */
 	public void displayAllSUVInformation() {
+		boolean hasVehicle = false;
+		for (AbstractVehicle vehicle : vehicleList) {
+			if (vehicle instanceof SUV){
+				hasVehicle = true;
+				System.out.println(vehicle.toString());
+			}
+		}
+		if (hasVehicle == false) {
+			System.out.println("There are no SUVs in the current list");
+		}
 	}
 	
 	/**
 	 * This will display the information, including maintenance cost, fuel efficiency, and how
 	 * the vehicle starts, of all the motor bikes present in the vehicleList.
 	 * 
+	 * Author: John
+	 * 
 	 * If the vehicle is not found, then print an appropriate error message.
 	 */
 	public void displayAllMotorBikeInformation() {
+		boolean hasVehicle = false;
+		for (AbstractVehicle vehicle : vehicleList) {
+			if (vehicle instanceof MotorBike){
+				hasVehicle = true;
+				System.out.println(vehicle.toString());
+			}
+		}
+		if (hasVehicle == false) {
+			System.out.println("There are no motor bikes in the current list");
+		}
 	}
-	
+		
 	/**
 	 * This will display the vehicle information, including maintenance cost, fuel efficiency, and
 	 * how the vehicle starts, of a Vehicle v which is present in the vehicleList.

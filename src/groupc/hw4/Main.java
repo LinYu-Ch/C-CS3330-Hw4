@@ -61,8 +61,6 @@ public class Main {
 		System.out.println("\n-------------------------Displaying information of all Bikes--------------------------------");
 		vehicleManager.displayAllMotorBikeInformation();
 		System.out.println("--------------------------------------------------------------------------------");
-
-
 		
 		System.out.println("\n-------------------------Vehicle with Lowest Maintenance Cost--------------------------------");
 		AbstractVehicle lowestMaintenance = vehicleManager.getVehicleWithLowestMaintenanceCost(300);
@@ -90,6 +88,11 @@ public class Main {
 			System.out.println(vehicle);
 			System.out.println("Fuel Efficiency: " + vehicle.calculateFuelEfficiency(300, 3.25));
 		}
+		System.out.println("--------------------------------------------------------------------------------");
+		
+		System.out.println("\n-------------------------SUV average fuel efficiency--------------------------------");
+		System.out.println("suv avg fuel efficiency");
+		System.out.println(vehicleManager.getAverageFuelEfficiencyOfSUVs(300, 3.25));
 		System.out.println("--------------------------------------------------------------------------------");
 		
 		

@@ -14,11 +14,12 @@ TODO
 **_Contributions_**
 ----------------------------
 _- Zoe:_
+
 Completed the following methods:
--readFromFile()
--displayVehicleInformation()
--displayAllVehicleInformation()
--saveVehicleList()
+- readFromFile()
+- displayVehicleInformation()
+- displayAllVehicleInformation()
+- saveVehicleList()
 
 Additionally:
 -implemented singleton design pattern in vehicleManager by making a private constructor, adding a filePath variable, an instance variable, and a way to get the instance of the singleton.

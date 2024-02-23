@@ -538,8 +538,31 @@ public class VehicleManagerSingleton {
 	 * Use the isVehicleType(Vehicle v, Class clazz) method.
 	 * If no SUVs exist in the list return -1.0 as an error code that indicates there is no SUVs in
 	 * the list to calculate the average fuel efficiency.
+	 * 
+	 * @param distance driven by the SUVs
+	 * @param current price for fuel
+	 * 
+	 * @return average fuel efficiency if SUVs are in list, -1.0 if not
 	 */
 	public double getAverageFuelEfficiencyOfSUVs(double distance, double fuelPrice) {
-		return fuelPrice;
+		//set up initial variables
+		double averageFuelEfficiency = 0.0;
+		boolean hasSuv = false;
+		int suvCount = 0;
+		double sentinel = -1.0;
+		
+		//check for an empty list
+		if(vehicleList.size() == 0) return sentinel;
+		
+		//itterate through list, looking for SUV types
+		for (AbstractVehicle vehicle : vehicleList) {
+			if (isVehicleType(vehicle, SUV.class)) {
+				hasSuv = true;
+				averageFuelEfficiency += vehicle.calculateFuelEfficiency(distance, fuelPrice);
+				suvCount ++;
+			}
+		}
+		if (hasSuv == false) return sentinel;
+		return averageFuelEfficiency / suvCount;
 	}
 }

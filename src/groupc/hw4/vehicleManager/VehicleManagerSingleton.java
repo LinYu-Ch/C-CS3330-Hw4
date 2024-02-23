@@ -151,6 +151,9 @@ public class VehicleManagerSingleton {
 			if (vehicle instanceof Car){
 				hasVehicle = true;
 				System.out.println(vehicle.toString());
+				System.out.println("Maintenence cost: "+ vehicle.calculateMaintenaceCost(distance));
+				System.out.println("Fuel Efficiency: "+ vehicle.calculateFuelEfficiency(distance, fuelPrice));
+				
 			}
 		}
 		if (hasVehicle == false) {
@@ -172,6 +175,8 @@ public class VehicleManagerSingleton {
 			if (vehicle instanceof Truck){
 				hasVehicle = true;
 				System.out.println(vehicle.toString());
+				System.out.println("Maintenence cost: "+ vehicle.calculateMaintenaceCost(distance));
+				System.out.println("Fuel Efficiency: "+ vehicle.calculateFuelEfficiency(distance, fuelPrice));
 			}
 		}
 		if (hasVehicle == false) {
@@ -193,6 +198,8 @@ public class VehicleManagerSingleton {
 			if (vehicle instanceof SUV){
 				hasVehicle = true;
 				System.out.println(vehicle.toString());
+				System.out.println("Maintenence cost: "+ vehicle.calculateMaintenaceCost(distance));
+				System.out.println("Fuel Efficiency: "+ vehicle.calculateFuelEfficiency(distance, fuelPrice));
 			}
 		}
 		if (hasVehicle == false) {
@@ -214,6 +221,8 @@ public class VehicleManagerSingleton {
 			if (vehicle instanceof MotorBike){
 				hasVehicle = true;
 				System.out.println(vehicle.toString());
+				System.out.println("Maintenence cost: "+ vehicle.calculateMaintenaceCost(distance));
+				System.out.println("Fuel Efficiency: "+ vehicle.calculateFuelEfficiency(distance, fuelPrice));
 			}
 		}
 		if (hasVehicle == false) {
@@ -554,7 +563,7 @@ public class VehicleManagerSingleton {
 		//check for an empty list
 		if(vehicleList.size() == 0) return sentinel;
 		
-		//itterate through list, looking for SUV types
+		//iterate through list, looking for SUV types
 		for (AbstractVehicle vehicle : vehicleList) {
 			if (isVehicleType(vehicle, SUV.class)) {
 				hasSuv = true;

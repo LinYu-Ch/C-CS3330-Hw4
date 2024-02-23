@@ -38,8 +38,10 @@ TODO
   
 _- John:_
 Project Initialization including: setting up Github, Vehicle Class, FuelType enum, StartMechanism enum, VehicleColorEnum, VehicleMangerClass, Classes for each type of vehicle. 
-TODO
-
+-    displayAllCarInformation
+-    displayAllTruckInformation
+-    displayAllSUVInformation
+-    displayAllMotorBikeInformation
 
 _**Running The Code:**_
 --------------------------

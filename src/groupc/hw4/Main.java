@@ -6,6 +6,8 @@ import groupc.hw4.vehicleManager.VehicleManagerSingleton;
 import groupc.hw4.vehicles.AbstractVehicle;
 import groupc.hw4.vehicles.Car;
 import groupc.hw4.vehicles.FuelType;
+import groupc.hw4.vehicles.MotorBike;
+import groupc.hw4.vehicles.SUV;
 import groupc.hw4.vehicles.StartMechanism;
 import groupc.hw4.vehicles.Truck;
 import groupc.hw4.vehicles.VehicleColor;
@@ -22,11 +24,20 @@ public class Main {
 		System.out.println("--------------------------------------------------------------------------------");
 		
 		// Perform operations based on the requirements. 
+		
+		System.out.println("\n-------------------------Initialize Stock----------------");
 		boolean vehicleManagerFlag = false;
 		vehicleManagerFlag = vehicleManager.initializeStock();
 		System.out.println("initializeStock(): "+ vehicleManagerFlag);
+		System.out.println("-----------------------------------------------------------");
+
 		Car car = new Car("FALSECAR","Sentra",2018,18000,VehicleColor.RED,FuelType.GASOLINE,1000,0.3,6,14,StartMechanism.PUSHSTART);
-		vehicleManager.addVehicle(car);
+		
+		System.out.println("\n-------------------------Adding vehicle to vehicle Manager----------------");
+		System.out.println("addVehicle(car): " + vehicleManager.addVehicle(car));
+		System.out.println("addVehicle(null): " + vehicleManager.addVehicle(null));
+		System.out.println("--------------------------------------------------------------------------------");
+
 		
 		System.out.println("\n-------------------------Displaying Specific Vehicle Information----------------");
 		System.out.println("\n---A car that exists:");
@@ -48,20 +59,29 @@ public class Main {
 		
 		System.out.println("\n-------------------------Displaying information of all Cars--------------------------------");
 		vehicleManager.displayAllCarInformation();
+		System.out.println("Number of Cars: "+vehicleManager.getNumberOfVehiclesByType(Car.class));
 		System.out.println("--------------------------------------------------------------------------------");
 
 		System.out.println("\n-------------------------Displaying information of all Trucks--------------------------------");
 		vehicleManager.displayAllTruckInformation();
+		System.out.println("Number of Trucks: "+vehicleManager.getNumberOfVehiclesByType(Truck.class));
 		System.out.println("--------------------------------------------------------------------------------");
 
 		System.out.println("\n-------------------------Displaying information of all SUVs--------------------------------");
 		vehicleManager.displayAllSUVInformation();
+		System.out.println("Number of SUVs: "+vehicleManager.getNumberOfVehiclesByType(SUV.class));
 		System.out.println("--------------------------------------------------------------------------------");
 
 		System.out.println("\n-------------------------Displaying information of all Bikes--------------------------------");
 		vehicleManager.displayAllMotorBikeInformation();
+		System.out.println("Number of MotorBikes: "+vehicleManager.getNumberOfVehiclesByType(MotorBike.class));
 		System.out.println("--------------------------------------------------------------------------------");
 		
+		System.out.println("\n-------------------------Display number of incorrect types--------------------------------");
+		System.out.println("Null: " + vehicleManager.getNumberOfVehiclesByType(null));
+		System.out.println("ArrayList: " + vehicleManager.getNumberOfVehiclesByType(ArrayList.class));
+		System.out.println("------------------------------------------------------------------------------------------");
+
 		System.out.println("\n-------------------------Vehicle with Lowest Maintenance Cost--------------------------------");
 		AbstractVehicle lowestMaintenance = vehicleManager.getVehicleWithLowestMaintenanceCost(300);
 		System.out.println(lowestMaintenance);

@@ -32,7 +32,7 @@ public class Main {
 		System.out.println("-----------------------------------------------------------");
 
 		Car car = new Car("FALSECAR","Sentra",2018,18000,VehicleColor.RED,FuelType.GASOLINE,1000,0.3,6,14,StartMechanism.PUSHSTART);
-		
+
 		System.out.println("\n-------------------------Adding vehicle to vehicle Manager----------------");
 		System.out.println("addVehicle(car): " + vehicleManager.addVehicle(car));
 		System.out.println("addVehicle(null): " + vehicleManager.addVehicle(null));
@@ -117,7 +117,12 @@ public class Main {
 		
 		
 		// Clean up so vehicleList.csv returns to original state
-		vehicleManager.removeVehicle(car);
+		System.out.println("\n-------------------------Test Remove Vehicle--------------------------------");
+		System.out.println("removeVehicle(car): "+vehicleManager.removeVehicle(car));
+		System.out.println("removeVehicle(null): "+vehicleManager.removeVehicle(null));
+		System.out.println("--------------------------------------------------------------------------------");
+
+
 		vehicleManager.saveVehicleList();
 		
 	}

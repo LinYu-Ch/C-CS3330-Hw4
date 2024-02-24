@@ -9,7 +9,8 @@ _**Authors**_
 - LinYu-Ch - John
 
 **_Description_**
-TODO
+---------------------------
+This project implements a hypothetical vehicle manager that utilizes a singleton design structure. It manages Trucks, Cars, SUVs, and MotorBikes, but could be extended further since they are all derived from an abstract class. each vehicle can hold the following information: brand, make, modelYear, price, color, fuelType, mileage, mass, cylinders, gasTankCapacity, and startType. The project also uses Enums to represent some of the data fields such as color and fuelType. Vehicles can be added, removed, and saved to a file (which data can also be retrieved from). The maintenance costs (lowest/highest) and fuel efficiency (lowest/highest) can also be retrieved. Finally the average fuel efficiency of an SUV can be returned to the user.
 
 **_Contributions_**
 ----------------------------
@@ -68,3 +69,8 @@ Implemented the methods:
 
 _**Running The Code:**_
 --------------------------
+There are no additional requirements to run the code. To run the code clone the repository:
+
+git clone https://github.com/LinYu-Ch/C-CS3330-Hw4.git
+
+You should then be able to select the main file and run the code. The necessary files for the vehicleList are already located within the project.

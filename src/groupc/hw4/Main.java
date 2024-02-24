@@ -137,6 +137,13 @@ public class Main {
 		System.out.println("removeVehicle(null): "+vehicleManager.removeVehicle(null));
 		System.out.println("--------------------------------------------------------------------------------");
 
+		// Check to see if information leak occures and protected data can be edited
+		System.out.println("\n-------------------------Test Information Leak--------------------------------");
+		vehicleManager.getVehicleWithHighestMaintenanceCost(300).setBrand("ALTERED");
+		System.out.println("setBrand(\"ALTERED\")");
+		System.out.println("getBrand(): " + vehicleManager.getVehicleWithHighestMaintenanceCost(300).getBrand());
+		System.out.println("--------------------------------------------------------------------------------");
+		
 		//save the vehicleList to the file.
 		vehicleManager.saveVehicleList();
 		

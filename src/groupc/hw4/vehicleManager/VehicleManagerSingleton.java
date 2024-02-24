@@ -419,12 +419,14 @@ public class VehicleManagerSingleton {
 	 * with the highest maintenance cost.
 	 * If multiple vehicles have the same maintenance cost, randomly return one of the
 	 * vehicles (Use the Random class for random selection).
+	 * 
+	 * Author: Ryan
 	 */
 	public AbstractVehicle getVehicleWithHighestMaintenanceCost(double distance) {
 		if(vehicleList.size() == 0) return null;
 	    
 		ArrayList<AbstractVehicle> highestList = new ArrayList<AbstractVehicle>();
-		highestList.add(vehicleList.get(0));
+		highestList.add(getCopy(vehicleList.get(0)));
 		double highestCost = highestList.get(0).calculateMaintenaceCost(distance);
 		
 		for(AbstractVehicle vehicle : vehicleList) {
@@ -432,29 +434,34 @@ public class VehicleManagerSingleton {
 			if(currCost > highestCost) {
 				highestCost = currCost;
 				highestList.clear();
-				highestList.add(vehicle);
+				highestList.add(getCopy(vehicle));
 			} else if(currCost == highestCost) {
-				highestList.add(vehicle);
+				highestList.add(getCopy(vehicle));
 			}
 		}
 		
-		int randIndex = (int)(Math.random() * highestList.size());
+		int randIndex = (int)(Math.random() * highestList.size()); 
+		
 		
 		return highestList.get(randIndex);
 		
 	}
+	
 
 	/**
 	 * Calculate the maintenance cost for each vehicle in the vehicle list and return the vehicle
 	 * with the lowest maintenance cost.
 	 * If multiple vehicles have the same maintenance cost, randomly return one of the
 	 * vehicles (Use the Random class for random selection).
+	 * 
+	 * Author: Ryan
+	 * 
 	 */
 	public AbstractVehicle getVehicleWithLowestMaintenanceCost(double distance) {
 		if(vehicleList.size() == 0) return null;
 	    
 		ArrayList<AbstractVehicle> lowestList = new ArrayList<AbstractVehicle>();
-		lowestList.add(vehicleList.get(0));
+		lowestList.add(getCopy(vehicleList.get(0)));
 		double lowestCost = lowestList.get(0).calculateMaintenaceCost(distance);
 		
 		for(AbstractVehicle vehicle : vehicleList) {
@@ -462,9 +469,9 @@ public class VehicleManagerSingleton {
 			if(currCost < lowestCost) {
 				lowestCost = currCost;
 				lowestList.clear();
-				lowestList.add(vehicle);
+				lowestList.add(getCopy(vehicle));
 			} else if(currCost == lowestCost) {
-				lowestList.add(vehicle);
+				lowestList.add(getCopy(vehicle));
 			}
 		}
 		
@@ -478,12 +485,15 @@ public class VehicleManagerSingleton {
 	 * with the highest fuel efficiency.
 	 * If multiple vehicles have the same highest fuel efficiency, return vehicles with the same
 	 * highest fuel efficiency in an ArrayList.
+	 * 
+	 * Author: Ryan
+	 * 
 	 */
 	public ArrayList<AbstractVehicle> getVehicleWithHighestFuelEfficiency(double distance, double fuelPrice) {
 		if(vehicleList.size() == 0) return null;
 	    
 		ArrayList<AbstractVehicle> highestList = new ArrayList<AbstractVehicle>();
-		highestList.add(vehicleList.get(0));
+		highestList.add(getCopy(vehicleList.get(0)));
 		double highestEfficiency = highestList.get(0).calculateFuelEfficiency(distance, fuelPrice);
 		
 		for(AbstractVehicle vehicle : vehicleList) {
@@ -491,9 +501,9 @@ public class VehicleManagerSingleton {
 			if(currEfficiency > highestEfficiency) {
 				highestEfficiency = currEfficiency;
 				highestList.clear();
-				highestList.add(vehicle);
+				highestList.add(getCopy(vehicle));
 			} else if(currEfficiency == highestEfficiency) {
-				highestList.add(vehicle);
+				highestList.add(getCopy(vehicle));
 			}
 		}
 		
@@ -505,12 +515,15 @@ public class VehicleManagerSingleton {
 	 * with the lowest fuel efficiency.
 	 * If multiple vehicles have the same lowest fuel efficiency, return vehicles with the same
 	 * lowest fuel efficiency in an ArrayList.
+	 * 
+	 * Author: Ryan
+	 * 
 	 */
 	public ArrayList<AbstractVehicle> getVehicleWithLowestFuelEfficiency(double distance, double fuelPrice) {
 		if(vehicleList.size() == 0) return null;
 	    
 		ArrayList<AbstractVehicle> lowestList = new ArrayList<AbstractVehicle>();
-		lowestList.add(vehicleList.get(0));
+		lowestList.add(getCopy(vehicleList.get(0)));
 		double lowestEfficiency = lowestList.get(0).calculateFuelEfficiency(distance, fuelPrice);
 		
 		for(AbstractVehicle vehicle : vehicleList) {
@@ -518,9 +531,9 @@ public class VehicleManagerSingleton {
 			if(currEfficiency < lowestEfficiency) {
 				lowestEfficiency = currEfficiency;
 				lowestList.clear();
-				lowestList.add(vehicle);
+				lowestList.add(getCopy(vehicle));
 			} else if(currEfficiency == lowestEfficiency) {
-				lowestList.add(vehicle);
+				lowestList.add(getCopy(vehicle));
 			}
 		}
 		
@@ -558,5 +571,27 @@ public class VehicleManagerSingleton {
 		}
 		if (hasSuv == false) return sentinel;
 		return averageFuelEfficiency / suvCount;
+	}
+	
+	/**
+	 * Uses copy constructor of one of the subclasees
+	 * to create copy of AbstractVehicle v. Used to prevent
+	 * information leak.
+	 * 
+	 * Author: Ryan
+	 */
+	private AbstractVehicle getCopy(AbstractVehicle v) {
+		if(v instanceof Car) {
+			return new Car((Car)v);
+		} else if (v instanceof Truck) {
+			return new Truck((Truck)v);
+		} else if (v instanceof MotorBike) {
+			return new MotorBike((MotorBike)v);
+		} else if (v instanceof SUV) {
+			return new SUV((SUV)v);
+		}
+		
+		System.out.println("ERROR: getCopy Failed");
+		return null;
 	}
 }

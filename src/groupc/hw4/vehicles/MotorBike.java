@@ -10,6 +10,11 @@ public class MotorBike extends AbstractVehicle{
         super(brand, make, modelYear, price, color, fuelType, mileage, mass, cylinders, gasTankCapacity, startType);
     }
     
+    //copy constructor 
+    public MotorBike(MotorBike bike) {
+		super(bike);
+	}
+    
 
 	// abstracted methods ///////////
 	@Override

@@ -10,6 +10,10 @@ public class SUV extends AbstractVehicle{
         super(brand, make, modelYear, price, color, fuelType, mileage, mass, cylinders, gasTankCapacity, startType);
     }
     
+    //copy constructor
+    public SUV(SUV suv) {
+		super(suv);
+	}
 
 	// abstracted methods ///////////
 	@Override

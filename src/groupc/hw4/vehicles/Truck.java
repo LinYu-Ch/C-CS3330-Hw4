@@ -10,7 +10,10 @@ public class Truck extends AbstractVehicle{
         super(brand, make, modelYear, price, color, fuelType, mileage, mass, cylinders, gasTankCapacity, startType);
     }
     
-    
+    //copy constructor
+    public Truck(Truck truck) {
+		super(truck);
+	}
 
 	// abstracted methods ///////////
 	@Override

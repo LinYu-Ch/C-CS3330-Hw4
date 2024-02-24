@@ -238,21 +238,6 @@ public class VehicleManagerSingleton {
 	 * @param v
 	 */
 	public void displayVehicleInformation(AbstractVehicle v) {
-//		//checks if vehicle exists
-//		boolean containsFlag= vehicleList.contains(v);
-//		
-//		//displays a message if the vehicle is not found and returns
-//		if(containsFlag == false) {
-//			System.out.println(v + " Does not exist");
-//			return;
-//		}
-//		
-//		//gets the index of the vehicle
-//		int index =vehicleList.indexOf(v);
-//		//prints out the vehicle information
-//		System.out.println(vehicleList.get(index).toString());
-		
-		
 		if (v != null) {
 			//goes through each vehicle in the vehicleList and uses the equals function to test if they are the same.
 			for (AbstractVehicle vehicle:vehicleList) {

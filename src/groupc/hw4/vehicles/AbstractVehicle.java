@@ -184,7 +184,6 @@ public abstract class AbstractVehicle {
 			
 			return true;
 		}
-		// TODO Auto-generated method stub
 		return false;
 	}
 	

@@ -44,8 +44,18 @@ Additionally:
     * startEngine  
 
 _- Ando:_
-TODO
-  
+
+Completed the following methods:  
+-   removeVehicle
+-   addVehicle
+-   isVehicleType
+-   getNumberOfVehiclesByType
+
+Additionally:  
+- Added gitignore
+- Cleaned up directories
+- Wrote test code for the 4 methods above  
+
 _- John:_
 Project Initialization including: setting up Github, Vehicle Class, FuelType enum, StartMechanism enum, VehicleColorEnum, VehicleMangerClass, Classes for each type of vehicle. 
 
